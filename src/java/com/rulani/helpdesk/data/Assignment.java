@@ -36,7 +36,7 @@ import javax.validation.constraints.NotNull;
     @NamedQuery(name = "Assignment.findByAssigmentID", query = "SELECT a FROM Assignment a WHERE a.assigmentID = :assigmentID"),
     @NamedQuery(name = "Assignment.findByDateAssigned", query = "SELECT a FROM Assignment a WHERE a.dateAssigned = :dateAssigned")})
 public class Assignment implements Serializable {
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "assignmentID")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "assignment")
     private List<Technician> technicianList;
     private static final long serialVersionUID = 1L;
     @Id

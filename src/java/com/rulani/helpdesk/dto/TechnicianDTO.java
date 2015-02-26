@@ -6,6 +6,7 @@
 package com.rulani.helpdesk.dto;
 
 import com.rulani.helpdesk.data.*;
+import java.util.List;
 
 
 
@@ -17,31 +18,58 @@ import com.rulani.helpdesk.data.*;
 
 public class TechnicianDTO {
     
+    private long dateRegistered; 
+    private int administratorID; 
+    private int companyID;
     private Integer technicianID;
     private String firstName;
     private String lastName;
     private String email;
     private String telephone;
     private String password;
-    private long dateRegistered; 
     private String role;
-    
-    
+    private List<AssignmentDTO> assignmentList;
 
     public TechnicianDTO() {
     }
 
     public TechnicianDTO(Technician t) {
-        this.technicianID = t.getTechnicianID();
-        this.firstName = t.getFirstName();
-        this.lastName = t.getLastName();
-        this.email = t.getEmail();
-        this.telephone = t.getTelephone();
-        this.password = t.getPassword();
-        this.dateRegistered = t.getDateRegistered().getTime();
-        this.role = t.getRole();
-        
+        dateRegistered = t.getDateRegistered().getTime();
+        administratorID = t.getAdministrator().getAdministratorID();
+        companyID = t.getCompany().getCompanyID();
+        technicianID = t.getTechnicianID();
+        firstName = t.getFirstName();
+        lastName = t.getLastName();
+        email = t.getEmail();
+        telephone = t.getTelephone();
+        password = t.getPassword();
+        role = t.getRole();
        
+        
+    }
+
+    public long getDateRegistered() {
+        return dateRegistered;
+    }
+
+    public void setDateRegistered(long dateRegistered) {
+        this.dateRegistered = dateRegistered;
+    }
+
+    public int getAdministratorID() {
+        return administratorID;
+    }
+
+    public void setAdministratorID(int administratorID) {
+        this.administratorID = administratorID;
+    }
+
+    public int getCompanyID() {
+        return companyID;
+    }
+
+    public void setCompanyID(int companyID) {
+        this.companyID = companyID;
     }
 
     public Integer getTechnicianID() {
@@ -92,14 +120,6 @@ public class TechnicianDTO {
         this.password = password;
     }
 
-    public long getDateRegistered() {
-        return dateRegistered;
-    }
-
-    public void setDateRegistered(long dateRegistered) {
-        this.dateRegistered = dateRegistered;
-    }
-
     public String getRole() {
         return role;
     }
@@ -107,5 +127,15 @@ public class TechnicianDTO {
     public void setRole(String role) {
         this.role = role;
     }
+
+    public List<AssignmentDTO> getAssignmentList() {
+        return assignmentList;
+    }
+
+    public void setAssignmentList(List<AssignmentDTO> assignmentList) {
+        this.assignmentList = assignmentList;
+    }
     
 }
+    
+    

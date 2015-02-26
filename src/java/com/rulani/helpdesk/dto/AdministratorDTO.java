@@ -8,6 +8,7 @@ package com.rulani.helpdesk.dto;
 import com.rulani.helpdesk.data.*;
 import java.util.List;
 
+
 /**
  *
  * @author rulls
@@ -15,6 +16,8 @@ import java.util.List;
 
 public class AdministratorDTO {
    
+    private List<TechnicianDTO> technicianList;
+    private int companyID;
     private Integer administratorID;
     private int userID;
     private int callLoggedID;
@@ -27,22 +30,37 @@ public class AdministratorDTO {
     private List<AssignmentDTO> assignmentList;
     
     public AdministratorDTO() {
+       
+    } 
+    
+    public AdministratorDTO(Administrator a){
+        companyID = a.getCompany().getCompanyID();
+        administratorID = a.getAdministratorID();
+        userID = a.getUserID();
+        callLoggedID = a.getCallLoggedID();
+        firstName = a.getFirstName();
+        lastName = a.getLastName();
+        email = a.getEmail();
+        password = a.getPassword();
+        telephone = a.getTelephone();
+        dateRegistered = a.getDateRegistered().getTime();
+        
     }
 
-    public AdministratorDTO(Administrator a){
-        
-        this.administratorID = a.getAdministratorID();
-        this.userID = a.getUserID();
-        this.callLoggedID = a.getCallLoggedID();
-        this.firstName = a.getFirstName();
-        this.lastName = a.getLastName();
-        this.email = a.getEmail();
-        this.password = a.getPassword();
-        this.telephone = a.getTelephone();
-        this.dateRegistered = a.getDateRegistered().getTime();
-        
-        
-        
+    public List<TechnicianDTO> getTechnicianList() {
+        return technicianList;
+    }
+
+    public void setTechnicianList(List<TechnicianDTO> technicianList) {
+        this.technicianList = technicianList;
+    }
+
+    public int getCompanyID() {
+        return companyID;
+    }
+
+    public void setCompanyID(int companyID) {
+        this.companyID = companyID;
     }
 
     public Integer getAdministratorID() {
@@ -124,5 +142,8 @@ public class AdministratorDTO {
     public void setAssignmentList(List<AssignmentDTO> assignmentList) {
         this.assignmentList = assignmentList;
     }
-}
+    
+    
+    }
 
+    

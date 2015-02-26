@@ -41,9 +41,9 @@ import javax.validation.constraints.Size;
     @NamedQuery(name = "CallLogged.findByDateCallClosed", query = "SELECT c FROM CallLogged c WHERE c.dateCallClosed = :dateCallClosed"),
     @NamedQuery(name = "CallLogged.findByTicketNumber", query = "SELECT c FROM CallLogged c WHERE c.ticketNumber = :ticketNumber")})
 public class CallLogged implements Serializable {
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "callLoggedID")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "callLogged")
     private List<Administrator> administratorList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "callLoggedID")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "callLogged")
     private List<Supervisor> supervisorList;
     private static final long serialVersionUID = 1L;
     @Id

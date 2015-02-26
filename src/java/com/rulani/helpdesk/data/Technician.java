@@ -49,10 +49,10 @@ public class Technician implements Serializable {
     private Date dateRegistered;
     @JoinColumn(name = "administratorID", referencedColumnName = "administratorID")
     @ManyToOne(optional = false)
-    private Administrator administratorID;
+    private Administrator administrator;
     @JoinColumn(name = "companyID", referencedColumnName = "companyID")
     @ManyToOne(optional = false)
-    private Company companyID;
+    private Company company;
    
     private static final long serialVersionUID = 1L;
     @Id
@@ -208,21 +208,23 @@ public class Technician implements Serializable {
         this.dateRegistered = dateRegistered;
     }
 
-    public Administrator getAdministratorID() {
-        return administratorID;
+    public Administrator getAdministrator() {
+        return administrator;
     }
 
-    public void setAdministratorID(Administrator administratorID) {
-        this.administratorID = administratorID;
+    public void setAdministrator(Administrator administrator) {
+        this.administrator = administrator;
     }
 
-    public Company getCompanyID() {
-        return companyID;
+    public Company getCompany() {
+        return company;
     }
 
-    public void setCompanyID(Company companyID) {
-        this.companyID = companyID;
+    public void setCompany(Company company) {
+        this.company = company;
     }
+
+    
 
     
 }

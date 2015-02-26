@@ -40,9 +40,9 @@ import javax.validation.constraints.Size;
     @NamedQuery(name = "Company.findByDateRegistered", query = "SELECT c FROM Company c WHERE c.dateRegistered = :dateRegistered"),
     @NamedQuery(name = "Company.findByFloorNumber", query = "SELECT c FROM Company c WHERE c.floorNumber = :floorNumber")})
 public class Company implements Serializable {
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "companyID")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "company")
     private List<Technician> technicianList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "companyID")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "company")
     private List<Administrator> administratorList;
     private static final long serialVersionUID = 1L;
     @Id

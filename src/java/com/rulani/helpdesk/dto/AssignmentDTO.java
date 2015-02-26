@@ -33,10 +33,7 @@ public class AssignmentDTO  {
         this.companyID = as.getCompany().getCompanyID();
         this.callLogged = new CallLoggedDTO(as.getCallLogged());
         this.technicianID= as.getTechnician().getTechnicianID();
-        
-        
-        
-        
+           
         
     }
 

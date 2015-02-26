@@ -44,11 +44,11 @@ import javax.validation.constraints.Size;
     @NamedQuery(name = "Administrator.findByTelephone", query = "SELECT a FROM Administrator a WHERE a.telephone = :telephone"),
     @NamedQuery(name = "Administrator.findByDateRegistered", query = "SELECT a FROM Administrator a WHERE a.dateRegistered = :dateRegistered")})
 public class Administrator implements Serializable {
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "administratorID")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "administrator")
     private List<Technician> technicianList;
     @JoinColumn(name = "companyID", referencedColumnName = "companyID")
     @ManyToOne(optional = false)
-    private Company companyID;
+    private Company company;
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -229,12 +229,14 @@ public class Administrator implements Serializable {
         this.technicianList = technicianList;
     }
 
-    public Company getCompanyID() {
-        return companyID;
+    public Company getCompany() {
+        return company;
     }
 
-    public void setCompanyID(Company companyID) {
-        this.companyID = companyID;
+    public void setCompany(Company company) {
+        this.company = company;
     }
+
+   
     
 }
